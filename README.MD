@@ -249,3 +249,54 @@ Output: Interstellar, The Prestige, Shutter Island...
 🚀 Use Case
 Useful for quick recommendations, brainstorming, and tasks where no labeled training data is available.
 
+
+
+
+## 2. One-Shot Prompting in CineMatch
+In CineMatch, one-shot prompting is the technique where I give the AI one clear example of the task before asking it to perform a new request. This single example helps the AI understand not only the type of content it should produce, but also the style, structure, and level of detail expected in the response.
+
+Why this matters in a movie recommendation system: Without examples, the AI might return recommendations in inconsistent formats — sometimes full sentences, sometimes bullet points, or with missing release years. By providing one example first, I’m setting a “standard” for how all recommendations should be returned, regardless of the genre or request.
+
+Example in CineMatch:
+
+vbnet
+Copy
+Edit
+Example:
+User Request: "Suggest action movies with strong female leads."
+Response:
+1. Mad Max: Fury Road (2015) – In a post-apocalyptic desert, Imperator Furiosa rebels against a tyrant.
+2. Wonder Woman (2017) – An Amazonian warrior princess fights in World War I to stop a god.
+
+Now, respond to:
+User Request: "Suggest mystery thrillers with unexpected plot twists."
+Because the AI has seen the example first, it understands:
+
+Output must be numbered
+
+Include movie title + release year
+
+Provide a concise one-line description
+
+So the response comes back in the exact same style:
+
+Gone Girl (2014) – A man becomes the prime suspect when his wife mysteriously disappears.
+
+Shutter Island (2010) – A U.S. marshal investigates a disappearance in a mental hospital.
+
+Why it works in CineMatch:
+
+Consistency: Every recommendation looks clean and uniform, which is important for UI display.
+
+Clarity: Users quickly understand the format, making it easier to scan through suggestions.
+
+Scalability: Works across genres — action, horror, rom-com, documentary — without retraining.
+
+For example, if the prompt changes to:
+
+“Suggest lighthearted rom-coms from the 90s”
+The AI will still return results in the same neat format established in the one-shot example.
+
+In short, one-shot prompting in CineMatch acts as a format training wheel — one example is enough to guide the AI into producing hundreds of clean, structured, and user-friendly recommendations.
+
+
